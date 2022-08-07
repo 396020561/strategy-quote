@@ -51,6 +51,8 @@ public class QuoteController {
             connection = (HttpURLConnection) url.openConnection();
             //设置连接方式：get
             connection.setRequestMethod("GET");
+            connection.setRequestProperty("Content-Type", "application/json");
+            connection.setRequestProperty("Accept-Charset", "GBK");
             //设置连接主机服务器的超时时间：15000毫秒
             connection.setConnectTimeout(15000);
             //设置读取远程返回的数据时间：60000毫秒
@@ -59,7 +61,7 @@ public class QuoteController {
             //通过connection连接，获取输入流
             is = connection.getInputStream();
             //封装输入流is，并指定字符集
-            br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+            br = new BufferedReader(new InputStreamReader(is, "GBK"));
 
             //存放数据
             StringBuffer sbf = new StringBuffer();
