@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tencent.wxcloudrun.dao.OptionalStockMapper">
+
+    <resultMap id="OptionalStock" type="com.tencent.wxcloudrun.model.OptionalStock">
+        <id property="id" column="id"/>
+        <result property="uid" column="uid"/>
+        <result property="stockList" column="stockList"/>
+        <result property="createdAt" column="createdAt" javaType="java.time.LocalDateTime" />
+        <result property="updatedAt" column="updatedAt" javaType="java.time.LocalDateTime"  />
+    </resultMap>
+
+    <select id="getOptionalStockByUid" resultMap="OptionalStock" parameterType="java.lang.Integer">
+        SELECT `id`, `uid`, `stockList`, `createdAt`, `updatedAt`
+        FROM OptionalStock
+        where uid = #{stockList}
+        limit 1
+    </select>
+
+    <update id="upsertOptionalStock" parameterType="com.tencent.wxcloudrun.model.OptionalStock">
+        INSERT INTO `OptionalStock`(`id`, `stockList`)
+        VALUE(#{id}, #{stockList})
+        ON DUPLICATE KEY UPDATE stockList=#{stockList}
+    </update>
+
+</mapper>

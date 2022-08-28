@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tencent.wxcloudrun.dao.StrategyModelMapper">
+
+    <resultMap id="StrategyModelMapper" type="com.tencent.wxcloudrun.model.StrategyModel">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="formula" column="formula"/>
+        <result property="createdAt" column="createdAt" javaType="java.time.LocalDateTime" />
+        <result property="updatedAt" column="updatedAt" javaType="java.time.LocalDateTime"  />
+    </resultMap>
+
+    <select id="getStrategyModelList" resultMap="countersMapper">
+        SELECT *
+        FROM StrategyModel;
+    </select>
+
+    <delete id="deleteStrategyModel" parameterType="java.lang.Integer">
+        DELETE
+        FROM StrategyModel
+        where id = #{id}
+        limit 1
+    </delete>
+
+    <update id="upsertStrategyModel" parameterType="com.tencent.wxcloudrun.model.StrategyModel">
+        INSERT INTO `StrategyModel`(`id`, `name`, `formula`)
+        VALUE(#{id}, #{name}, #{formula})
+        ON DUPLICATE KEY UPDATE formula=#{formula}
+    </update>
+
+</mapper>

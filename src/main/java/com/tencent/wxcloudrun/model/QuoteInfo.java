@@ -9,7 +9,7 @@ public class QuoteInfo {
     private String stockCode; // 代码
     private String currentPrice; // 当前价格
     private String yesClosePrice; // 昨收价
-    private String openPrice; // 金开价
+    private String openPrice; // 今开价
     private String dealAmount; // 成交量（手）
     private String outer; // 外盘
     private String inner; // 内盘
