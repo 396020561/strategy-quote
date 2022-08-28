@@ -24,8 +24,11 @@ public class QuoteServiceImpl implements QuoteService {
         List res = new ArrayList();
         if (!"v_pv_none_match=\"1\";".equals(quoteStr)) {
             Arrays.stream(quoteStr.split(";")).forEach((item) -> {
-                QuoteInfo info = new QuoteInfo(item);
-                res.add(info);
+                String[] fields = item.split("~");
+                if (fields.length > 50) {
+                    QuoteInfo info = new QuoteInfo(fields);
+                    res.add(info);
+                }
             });
         }
         return res;

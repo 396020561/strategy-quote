@@ -50,8 +50,7 @@ public class QuoteInfo {
     private String tradingLimitPrice; // 涨停价
     private String fallingLimitPrice; // 跌停价
 
-    public QuoteInfo(String quoteInfo) {
-        String[] fields = quoteInfo.split("~");
+    public QuoteInfo(String[] fields) {
         try {
             this.stockName = fields[1];
             this.stockCode = fields[2];
