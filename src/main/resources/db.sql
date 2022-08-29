@@ -1,12 +1,5 @@
-CREATE TABLE `Counters` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `count` int(11) NOT NULL DEFAULT '1',
-  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
 -- 算法策略表
+drop table if exists StrategyModel;
 CREATE TABLE `StrategyModel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` varchar(16) NOT NULL DEFAULT '',
@@ -18,9 +11,10 @@ CREATE TABLE `StrategyModel` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- 算法策略与股票关联表
+drop table if exists StockRelateStrategy;
 CREATE TABLE `StockRelateStrategy` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sid` int(11) NOT NULL DEFAULT '',
+  `sid` varchar(11) NOT NULL DEFAULT '',
   `stkcode` varchar(8) NOT NULL DEFAULT '',
   `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -28,6 +22,7 @@ CREATE TABLE `StockRelateStrategy` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- 自选股票表
+drop table if exists OptionalStock;
 CREATE TABLE `OptionalStock` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` varchar(16) NOT NULL DEFAULT '',
