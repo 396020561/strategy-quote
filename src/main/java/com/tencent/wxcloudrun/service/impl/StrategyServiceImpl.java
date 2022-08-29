@@ -18,7 +18,7 @@ public class StrategyServiceImpl implements StrategyService {
     }
 
     @Override
-    public List queryStrategyModelListByUid(String uid) {
+    public List<StrategyModel> queryStrategyModelListByUid(String uid) {
         return strategyModelMapper.getStrategyModelList(uid);
     }
 

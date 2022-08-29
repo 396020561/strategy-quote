@@ -12,14 +12,14 @@
     </resultMap>
 
     <select id="getStrategyModelList" parameterType="java.lang.String"
-            resultType="java.util.ArrayList">
+            resultType="com.tencent.wxcloudrun.model.StrategyModel">
         SELECT *
         FROM StrategyModel
         where uid = #{uid};
     </select>
 
     <select id="getStrategyModelListByStock" parameterType="java.lang.String"
-            resultType="java.util.ArrayList">
+            resultType="com.tencent.wxcloudrun.model.StrategyModel">
         SELECT *
         FROM StrategyModel sm
         where sm.id in (select sid from StockRelateStrategy where stkcode = #{stkcode});
