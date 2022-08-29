@@ -33,8 +33,8 @@ public class OptionalStockController {
      * 新增用户策略模型
      * @return API response json
      */
-    @PostMapping(value = "/upStrategyInfo")
-    ApiResponse upStrategyInfo(@RequestBody OptionalStock optionalStock) {
+    @PostMapping(value = "/upOptionalStockInfo")
+    ApiResponse upOptionalStockInfo(@RequestBody OptionalStock optionalStock) {
         this.logger.info("添加或更新用户{" + optionalStock.getUid() + "}的相关自选股票", optionalStock);
         try {
             optionStockService.updateOptionalStock(optionalStock);
