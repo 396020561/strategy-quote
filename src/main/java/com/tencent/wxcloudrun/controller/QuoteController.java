@@ -5,6 +5,7 @@ import com.tencent.wxcloudrun.model.Counter;
 import com.tencent.wxcloudrun.service.QuoteService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.Marker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,11 +32,12 @@ public class QuoteController {
     }
 
     /**
-     * 获取当前计数
+     * 获取股票行情
      * @return API response json
      */
     @GetMapping(value = "/quoteInfo")
     ApiResponse get(@RequestParam("symbol") String symbol) {
+        this.logger.info("获取证券代码行情->" + symbol);
         return ApiResponse.ok(quoteService.queryQuote(symbol));
     }
 }

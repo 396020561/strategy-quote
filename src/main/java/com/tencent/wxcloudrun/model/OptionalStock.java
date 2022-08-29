@@ -10,7 +10,7 @@ public class OptionalStock implements Serializable {
 
   private Integer id;
 
-  private Integer uid; // 用户编号
+  private String uid; // 用户编号
 
   private String stockList; // 股票代码集合
 

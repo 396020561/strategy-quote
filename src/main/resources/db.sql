@@ -9,6 +9,7 @@ CREATE TABLE `Counters` (
 -- 算法策略表
 CREATE TABLE `StrategyModel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` varchar(16) NOT NULL DEFAULT '',
   `name` char(11) NOT NULL DEFAULT '默认策略名',
   `formula` varchar(256) NOT NULL DEFAULT '[]',
   `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -29,7 +30,7 @@ CREATE TABLE `StockRelateStrategy` (
 -- 自选股票表
 CREATE TABLE `OptionalStock` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) NOT NULL DEFAULT '',
+  `uid` varchar(16) NOT NULL DEFAULT '',
   `stockList` varchar(128) NOT NULL DEFAULT '',
   `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,

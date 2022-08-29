@@ -10,6 +10,8 @@ public class StrategyModel implements Serializable {
 
   private Integer id;
 
+  private String uid; // 所属用户
+
   private String name; // 算法名称
 
   private String formula; // 算法公式

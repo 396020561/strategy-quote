@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.tencent.wxcloudrun.dao.CountersMapper">
+<mapper namespace="com.tencent.wxcloudrun.dao.StockRelateStrategyMapper">
 
     <resultMap id="StockRelateStrategyMapper" type="com.tencent.wxcloudrun.model.StockRelateStrategy">
         <id property="id" column="id"/>
@@ -10,13 +10,13 @@
         <result property="updatedAt" column="updatedAt" javaType="java.time.LocalDateTime"  />
     </resultMap>
 
-    <select id="getStrategyByStockCode" resultMap="countersMapper" parameterType="java.lang.Integer">
+    <select id="getStrategyByStockCode" resultMap="StockRelateStrategyMapper" parameterType="java.lang.Integer">
         SELECT `id`, `stkcode`, `sid`, `createdAt`, `updatedAt`
         FROM StockRelateStrategy
         WHERE stkcode = #{stkcode}
     </select>
 
-    <select id="getStockByStrategyId" resultMap="countersMapper" parameterType="java.lang.Integer">
+    <select id="getStockByStrategyId" resultMap="StockRelateStrategyMapper" parameterType="java.lang.Integer">
         SELECT `id`, `stkcode`, `sid`, `createdAt`, `updatedAt`
         FROM StockRelateStrategy
         WHERE sid = #{sid}
