@@ -10,10 +10,10 @@
         <result property="updatedAt" column="updatedAt" javaType="java.time.LocalDateTime"  />
     </resultMap>
 
-    <select id="getOptionalStockByUid" resultMap="OptionalStock" parameterType="java.lang.Integer">
+    <select id="getOptionalStockByUid" resultMap="OptionalStock" parameterType="java.lang.String">
         SELECT `id`, `uid`, `stockList`, `createdAt`, `updatedAt`
         FROM OptionalStock
-        where uid = #{stockList}
+        where uid = #{uid}
         limit 1
     </select>
 
