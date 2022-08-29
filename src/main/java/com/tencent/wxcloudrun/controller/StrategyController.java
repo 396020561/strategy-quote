@@ -6,10 +6,7 @@ import com.tencent.wxcloudrun.service.StrategyService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class StrategyController {
@@ -37,7 +34,7 @@ public class StrategyController {
      * @return API response json
      */
     @PostMapping(value = "/upStrategyInfo")
-    ApiResponse get(StrategyModel strategyModel) {
+    ApiResponse get(@RequestBody StrategyModel strategyModel) {
         this.logger.info("添加或更新用户{" + strategyModel.getUid() + "}的相关策略模型", strategyModel);
         try {
             strategyService.updateStrategyModeInfo(strategyModel);
