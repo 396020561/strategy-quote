@@ -32,8 +32,14 @@
         limit 1
     </delete>
 
-    <update id="upsertStrategyModel" parameterType="com.tencent.wxcloudrun.model.StrategyModel">
+    <update id="insertStrategyModel" parameterType="com.tencent.wxcloudrun.model.StrategyModel">
         INSERT INTO `StrategyModel`(`id`, `uid`, `name`, `formula`)
+        VALUE(#{id}, #{uid}, #{name}, #{formula})
+        ON DUPLICATE KEY UPDATE formula=#{formula}
+    </update>
+
+    <update id="updateStrategyModel" parameterType="com.tencent.wxcloudrun.model.StrategyModel">
+        UPDATE `StrategyModel` set  (`id`, `uid`, `name`, `formula`)
         VALUE(#{id}, #{uid}, #{name}, #{formula})
         ON DUPLICATE KEY UPDATE formula=#{formula}
     </update>

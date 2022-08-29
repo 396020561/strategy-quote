@@ -11,5 +11,7 @@ public interface OptionalStockMapper {
 
   OptionalStock getOptionalStockByUid(@Param("uid") String uid);
 
-  void upsertOptionalStock(OptionalStock optionalStock);
+  void insertOptionalStock(OptionalStock optionalStock);
+
+  void updateOptionalStock(OptionalStock optionalStock);
 }

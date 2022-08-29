@@ -14,7 +14,9 @@ public interface StrategyModelMapper {
 
   List<StrategyModel> getStrategyModelListByStock(@Param("stkcode") String stockCode);
 
-  void upsertStrategyModel(StrategyModel strategyModel);
+  void insertStrategyModel(StrategyModel strategyModel);
+
+  void updateStrategyModel(StrategyModel strategyModel);
 
   void deleteStrategyModel(@Param("id") Integer id);
 }

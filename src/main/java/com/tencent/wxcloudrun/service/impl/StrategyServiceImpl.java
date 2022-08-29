@@ -24,6 +24,10 @@ public class StrategyServiceImpl implements StrategyService {
 
     @Override
     public void updateStrategyModeInfo(StrategyModel strategyModel) throws Exception {
-        strategyModelMapper.upsertStrategyModel(strategyModel);
+        if (strategyModel.getId() == null) {
+            strategyModelMapper.insertStrategyModel(strategyModel);
+        } else {
+            strategyModelMapper.updateStrategyModel(strategyModel);
+        }
     }
 }

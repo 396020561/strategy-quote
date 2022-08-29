@@ -6,6 +6,8 @@ import com.tencent.wxcloudrun.service.OptionStockService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLSyntaxErrorException;
+
 @Service
 public class OptionalStockServiceImpl implements OptionStockService {
 
@@ -22,6 +24,10 @@ public class OptionalStockServiceImpl implements OptionStockService {
 
     @Override
     public void updateOptionalStock(OptionalStock optionalStock) throws Exception {
-        optionalStockMapper.upsertOptionalStock(optionalStock);
+        if (optionalStock.getId() == null) {
+            optionalStockMapper.insertOptionalStock(optionalStock);
+        } else {
+            optionalStockMapper.updateOptionalStock(optionalStock);
+        }
     }
 }

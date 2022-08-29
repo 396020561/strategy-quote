@@ -17,9 +17,15 @@
         limit 1
     </select>
 
-    <update id="upsertOptionalStock" parameterType="com.tencent.wxcloudrun.model.OptionalStock">
+    <update id="insertOptionalStock" parameterType="com.tencent.wxcloudrun.model.OptionalStock">
         INSERT INTO `OptionalStock`(`id`, `uid` `stockList`)
         VALUE(#{id}, #{uid}, #{stockList})
+        ON DUPLICATE KEY UPDATE stockList=#{stockList}
+    </update>
+
+    <update id="updateOptionalStock" parameterType="com.tencent.wxcloudrun.model.OptionalStock">
+        UPDATE `OptionalStock` set (`id`, `uid` `stockList`)
+        VALUE (#{id}, #{uid}, #{stockList})
         ON DUPLICATE KEY UPDATE stockList=#{stockList}
     </update>
 
