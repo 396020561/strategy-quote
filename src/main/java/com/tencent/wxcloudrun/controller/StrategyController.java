@@ -24,7 +24,7 @@ public class StrategyController {
      * @return API response json
      */
     @GetMapping(value = "/strategyList")
-    ApiResponse get(@RequestParam("uid") String uid) {
+    ApiResponse queryStrategyList(@RequestParam("uid") String uid) {
         this.logger.info("获取用户{" + uid + "}的相关策略模型");
         return ApiResponse.ok(strategyService.queryStrategyModelListByUid(uid));
     }
@@ -34,7 +34,7 @@ public class StrategyController {
      * @return API response json
      */
     @PostMapping(value = "/upStrategyInfo")
-    ApiResponse get(@RequestBody StrategyModel strategyModel) {
+    ApiResponse upStrategyInfo(@RequestBody StrategyModel strategyModel) {
         this.logger.info("添加或更新用户{" + strategyModel.getUid() + "}的相关策略模型", strategyModel);
         try {
             strategyService.updateStrategyModeInfo(strategyModel);

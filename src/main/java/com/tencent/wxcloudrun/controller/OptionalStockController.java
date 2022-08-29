@@ -24,7 +24,7 @@ public class OptionalStockController {
      * @return API response json
      */
     @GetMapping(value = "/optionalStockList")
-    ApiResponse get(@RequestParam("uid") String uid) {
+    ApiResponse optionalStockList(@RequestParam("uid") String uid) {
         this.logger.info("获取用户{" + uid + "}的相关自选股票");
         return ApiResponse.ok(optionStockService.queryOptionalStock(uid));
     }
@@ -34,7 +34,7 @@ public class OptionalStockController {
      * @return API response json
      */
     @PostMapping(value = "/upStrategyInfo")
-    ApiResponse get(@RequestBody OptionalStock optionalStock) {
+    ApiResponse upStrategyInfo(@RequestBody OptionalStock optionalStock) {
         this.logger.info("添加或更新用户{" + optionalStock.getUid() + "}的相关自选股票", optionalStock);
         try {
             optionStockService.updateOptionalStock(optionalStock);
