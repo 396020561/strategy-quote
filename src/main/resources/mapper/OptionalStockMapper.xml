@@ -18,8 +18,8 @@
     </select>
 
     <update id="upsertOptionalStock" parameterType="com.tencent.wxcloudrun.model.OptionalStock">
-        INSERT INTO `OptionalStock`(`id`, `stockList`)
-        VALUE(#{id}, #{stockList})
+        INSERT INTO `OptionalStock`(`id`, `uid` `stockList`)
+        VALUE(#{id}, #{uid}, #{stockList})
         ON DUPLICATE KEY UPDATE stockList=#{stockList}
     </update>
 
