@@ -24,10 +24,9 @@
     </update>
 
     <update id="updateOptionalStock" parameterType="com.tencent.wxcloudrun.model.OptionalStock">
-        UPDATE `OptionalStock` set (`stockList`)
-        VALUE (#{stockList})
-        WHERE id = #{id} or uid = #{uid}
-        ON DUPLICATE KEY UPDATE stockList=#{stockList}
+        UPDATE `OptionalStock` set stockList
+        = #{stockList}
+        WHERE id = #{id} or uid = #{uid};
     </update>
 
 </mapper>
