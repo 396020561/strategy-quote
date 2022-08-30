@@ -39,8 +39,9 @@
     </update>
 
     <update id="updateStrategyModel" parameterType="com.tencent.wxcloudrun.model.StrategyModel">
-        UPDATE `StrategyModel` set  (`id`, `uid`, `name`, `formula`)
-        VALUE(#{id}, #{uid}, #{name}, #{formula})
+        UPDATE `StrategyModel` set  (`name`, `formula`)
+        VALUE(#{name}, #{formula})
+        where id = #{id} or uid = #{uid}
         ON DUPLICATE KEY UPDATE formula=#{formula}
     </update>
 
